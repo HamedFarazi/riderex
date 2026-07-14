@@ -62,17 +62,7 @@ function Header() {
         { name: "کیف و باربند", href: "/courses" },
       ],
     },
-    {
-      /*
-      name: "تخفیف‌ها",
-      href: "#",
-      hasDropdown: true,
-      dropdownItems: [
-        { name: "فروش ویژه یک", href: "/special-sale-1" },
-        { name: "فروش ویژه دو", href: "/special-sale-2" },
-      ],
-    */
-    },
+
     { name: "وبلاگ", href: "/blog" },
     { name: "درباره ما", href: "/about" },
     { name: "تماس با ما", href: "/contact" },
