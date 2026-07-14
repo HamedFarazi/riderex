@@ -930,10 +930,10 @@ function HomePage3() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-            خدمات<span className="text-gradient">رایدرکس </span>
+            خدمات<span className="text-gradient"> رایدرکس </span>
           </h2>
           <p className="text-base md:text-xl text-gray-400">
-            از خدمات تیم تخصص و غنی رادرکس استفاده کنید
+            از خدمات تیم تخصص و فنی رایدرکس استفاده کنید
           </p>
         </div>
 
