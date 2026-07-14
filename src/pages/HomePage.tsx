@@ -268,7 +268,7 @@ function HomePage3() {
       students: 4500,
       courses: 15,
       rating: 4.9,
-      image: "./images/pexels-photo-1043471.jpeg",
+      image: "./images/banner2.jpg",
       specialties: ["محصولات", "محصولات", "محصولات"],
     },
     {
@@ -279,7 +279,7 @@ function HomePage3() {
       students: 4500,
       courses: 15,
       rating: 4.9,
-      image: "./images/pexels-photo-1043471.jpeg",
+      image: "./images/banner2.jpg",
       specialties: ["محصولات", "محصولات", "محصولات"],
     },
     {
@@ -290,7 +290,7 @@ function HomePage3() {
       students: 4500,
       courses: 15,
       rating: 4.9,
-      image: "./images/pexels-photo-1043471.jpeg",
+      image: "./images/banner2.jpg",
       specialties: ["محصولات", "محصولات", "محصولات"],
     },
     {
@@ -301,7 +301,7 @@ function HomePage3() {
       students: 4500,
       courses: 15,
       rating: 4.9,
-      image: "./images/pexels-photo-1043471.jpeg",
+      image: "./images/banner2.jpg",
       specialties: ["محصولات", "محصولات", "محصولات"],
     },
   ];
