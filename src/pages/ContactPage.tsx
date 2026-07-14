@@ -1,30 +1,34 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
+import React, { useState } from "react";
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 
 function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     setSubmitted(true);
     setIsSubmitting(false);
   };
@@ -36,9 +40,12 @@ function ContactPage() {
           <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <Send className="h-8 w-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold mb-4 text-green-400">پیام شما ارسال شد!</h1>
+          <h1 className="text-3xl font-bold mb-4 text-green-400">
+            پیام شما ارسال شد!
+          </h1>
           <p className="text-xl text-gray-400 mb-6">
-            از تماس شما متشکریم. تیم پشتیبانی ما در اسرع وقت با شما تماس خواهد گرفت.
+            از تماس شما متشکریم. تیم پشتیبانی ما در اسرع وقت با شما تماس خواهد
+            گرفت.
           </p>
           <button
             onClick={() => setSubmitted(false)}
@@ -64,7 +71,7 @@ function ContactPage() {
         <div className="lg:col-span-1 space-y-6">
           <div className="glass rounded-xl p-6">
             <h2 className="text-xl font-semibold mb-6">اطلاعات تماس</h2>
-            
+
             <div className="space-y-4">
               <div className="flex items-start space-x-4 space-x-reverse">
                 <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -83,8 +90,8 @@ function ContactPage() {
                 </div>
                 <div>
                   <div className="font-medium mb-1">ایمیل</div>
-                  <div className="text-gray-400">info@yadino.ir</div>
-                  <div className="text-gray-400">support@yadino.ir</div>
+                  <div className="text-gray-400">info@mail.ir</div>
+                  <div className="text-gray-400">support@mail.ir</div>
                 </div>
               </div>
 
@@ -95,9 +102,9 @@ function ContactPage() {
                 <div>
                   <div className="font-medium mb-1">آدرس</div>
                   <div className="text-gray-400">
-                    تهران، خیابان ولیعصر، پلاک ۱۲۳
+                    تهران، خیابان ، پلاک ۱۲۳
                     <br />
-                    برج تکنولوژی، طبقه ۱۰
+                    برج 1، طبقه ۱۰
                   </div>
                 </div>
               </div>
@@ -147,12 +154,17 @@ function ContactPage() {
         {/* Contact Form */}
         <div className="lg:col-span-2">
           <div className="glass rounded-xl p-8">
-            <h2 className="text-2xl font-semibold mb-6">پیام خود را ارسال کنید</h2>
-            
+            <h2 className="text-2xl font-semibold mb-6">
+              پیام خود را ارسال کنید
+            </h2>
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2"
+                  >
                     نام و نام خانوادگی *
                   </label>
                   <input
@@ -166,9 +178,12 @@ function ContactPage() {
                     placeholder="نام کامل خود را وارد کنید"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2"
+                  >
                     ایمیل *
                   </label>
                   <input
@@ -185,7 +200,10 @@ function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium mb-2"
+                >
                   موضوع *
                 </label>
                 <select
@@ -196,18 +214,35 @@ function ContactPage() {
                   onChange={handleInputChange}
                   className="w-full py-3 px-4 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                 >
-                  <option value="" className="bg-slate-800">موضوع پیام را انتخاب کنید</option>
-                  <option value="support" className="bg-slate-800">پشتیبانی فنی</option>
-                  <option value="courses" className="bg-slate-800">سوال درباره دوره‌ها</option>
-                  <option value="payment" className="bg-slate-800">مشکل پرداخت</option>
-                  <option value="cooperation" className="bg-slate-800">همکاری</option>
-                  <option value="suggestion" className="bg-slate-800">پیشنهاد</option>
-                  <option value="other" className="bg-slate-800">سایر</option>
+                  <option value="" className="bg-slate-800">
+                    موضوع پیام را انتخاب کنید
+                  </option>
+                  <option value="support" className="bg-slate-800">
+                    پشتیبانی فنی
+                  </option>
+                  <option value="courses" className="bg-slate-800">
+                    سوال درباره دوره‌ها
+                  </option>
+                  <option value="payment" className="bg-slate-800">
+                    مشکل پرداخت
+                  </option>
+                  <option value="cooperation" className="bg-slate-800">
+                    همکاری
+                  </option>
+                  <option value="suggestion" className="bg-slate-800">
+                    پیشنهاد
+                  </option>
+                  <option value="other" className="bg-slate-800">
+                    سایر
+                  </option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
                   پیام *
                 </label>
                 <textarea
@@ -252,7 +287,9 @@ function ContactPage() {
             <div className="text-center">
               <MapPin className="h-12 w-12 text-purple-400 mx-auto mb-3" />
               <p className="text-gray-400">نقشه تعاملی</p>
-              <p className="text-sm text-gray-500">تهران، خیابان ولیعصر، پلاک ۱۲۳</p>
+              <p className="text-sm text-gray-500">
+                تهران، خیابان ولیعصر، پلاک ۱۲۳
+              </p>
             </div>
           </div>
         </div>

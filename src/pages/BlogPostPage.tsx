@@ -47,17 +47,17 @@ function BlogPostPage() {
   const relatedPosts = [
     {
       id: "2",
-      title: "اصول طراحی UI/UX که هر طراح باید بداند",
+      title: "فرق انواع روغن موتور",
       image: "./images/pexels-photo-196644.jpeg",
-      author: "مریم احمدی",
-      date: "۱۴۰۳/۰۸/۱۸",
+      author: "احمدی",
+      date: "1405/04/23",
     },
     {
       id: "4",
-      title: "هوش مصنوعی و تاثیر آن بر آموزش آنلاین",
-      image: "./images/pexels-photo-8386440.jpeg",
-      author: "سارا میرزایی",
-      date: "۱۴۰۳/۰۸/۱۲",
+      title: "فرق انواع روغن موتور",
+      image: "./images/pexels-photo-196644.jpeg",
+      author: "احمدی",
+      date: "1405/04/23",
     },
   ];
 

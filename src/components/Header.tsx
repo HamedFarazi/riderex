@@ -63,6 +63,7 @@ function Header() {
       ],
     },
     {
+      /*
       name: "تخفیف‌ها",
       href: "#",
       hasDropdown: true,
@@ -70,6 +71,7 @@ function Header() {
         { name: "فروش ویژه یک", href: "/special-sale-1" },
         { name: "فروش ویژه دو", href: "/special-sale-2" },
       ],
+    */
     },
     { name: "وبلاگ", href: "/blog" },
     { name: "درباره ما", href: "/about" },
