@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="260" viewBox="0 0 800 260">
+<defs>
+  <linearGradient id="silver" x1="0" x2="1">
+    <stop offset="0%" stop-color="#f2f2f2"/>
+    <stop offset="50%" stop-color="#9a9a9a"/>
+    <stop offset="100%" stop-color="#ffffff"/>
+  </linearGradient>
+  <linearGradient id="red" x1="0" x2="1">
+    <stop offset="0%" stop-color="#6b0000"/>
+    <stop offset="50%" stop-color="#ff1a1a"/>
+    <stop offset="100%" stop-color="#b30000"/>
+  </linearGradient>
+</defs>
+
+<rect width="100%" height="100%" fill="black"/>
+
+<!-- stylized R -->
+<path d="M40 30 H170 Q210 30 210 70 Q210 105 170 112 L130 118 L205 210 H145 L90 125 H40 Z"
+      fill="url(#silver)"/>
+<path d="M40 120 H135 Q210 120 210 165 Q210 205 155 205 H105 L145 240 H70 L40 205 Z"
+      fill="url(#red)"/>
+
+<text x="235" y="135"
+      font-family="Arial Black, Arial, sans-serif"
+      font-size="82"
+      fill="url(#silver)"
+      letter-spacing="2">RIDER</text>
+
+<text x="540" y="135"
+      font-family="Arial Black, Arial, sans-serif"
+      font-size="82"
+      fill="url(#red)"
+      letter-spacing="2">EX</text>
+
+<text x="245" y="180"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      fill="#ff2a2a"
+      letter-spacing="6">RIDE BEYOND LIMITS</text>
+</svg>
