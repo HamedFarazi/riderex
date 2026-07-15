@@ -20,7 +20,7 @@ function CartPage() {
           <div className="text-center">
             <ShoppingCart className="h-24 w-24 text-purple-400 mx-auto mb-6" />
             <h1 className="text-3xl font-bold mb-4 text-purple-200">سبد خرید شما خالی است</h1>
-            <p className="text-xl text-gray-400 mb-8">هنوز هیچ دوره‌ای به سبد خرید اضافه نکرده‌اید</p>
+            <p className="text-xl text-gray-400 mb-8">هنوز هیچ محصولی به سبد خرید اضافه نکرده‌اید</p>
             <Link
               to="/courses"
               className="glow-button px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 space-x-reverse"
@@ -60,7 +60,7 @@ function CartPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-purple-200 mb-2">سبد خرید</h1>
-          <p className="text-lg text-gray-400">دوره های انتخابی شما</p>
+          <p className="text-lg text-gray-400">محصولات های انتخابی شما</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -152,7 +152,7 @@ function CartPage() {
             {/* Price Breakdown */}
             <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
               <div className="flex justify-between text-sm sm:text-base">
-                <span className="text-gray-400">قیمت دوره ها:</span>
+                <span className="text-gray-400">قیمت محصولات:</span>
                 <span className="text-purple-200">
                   {subtotal.toLocaleString('fa')} تومان
                 </span>
@@ -203,7 +203,7 @@ function CartPage() {
               </div>
               <div className="flex items-center space-x-3 space-x-reverse text-xs sm:text-sm">
                 <Award className="h-3 w-3 sm:h-4 sm:w-4 text-purple-400" />
-                <span className="text-gray-300">گواهینامه معتبر</span>
+                <span className="text-gray-300">گارانتی</span>
               </div>
               <div className="flex items-center space-x-3 space-x-reverse text-xs sm:text-sm">
                 <Headphones className="h-3 w-3 sm:h-4 sm:w-4 text-purple-400" />

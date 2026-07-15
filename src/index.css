@@ -314,38 +314,43 @@ body {
 
 /* ── NAVBAR ── */
 .navbar-dark {
-  background: rgba(5, 5, 5, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(217, 4, 22, 0.15);
+  background: rgba(5, 5, 5, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(217, 4, 22, 0.18);
+  /* subtle red ambient underline glow */
+  box-shadow: 0 1px 0 rgba(217,4,22,0.12), 0 4px 24px rgba(0,0,0,0.6);
 }
 
 .nav-link-moto {
   position: relative;
-  color: #a0a0a0;
-  font-size: 0.875rem;
-  font-weight: 500;
+  color: #909090;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   padding: 6px 10px;
   border-radius: 6px;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 300ms ease, background 300ms ease, transform 300ms ease;
 }
 
 .nav-link-moto::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  right: 10px;
-  left: 10px;
-  height: 2px;
-  background: #D90416;
+  bottom: -1px;
+  right: 8px;
+  left: 8px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #D90416, transparent);
   border-radius: 1px;
   transform: scaleX(0);
-  transition: transform 0.25s ease;
+  transition: transform 280ms ease;
+  opacity: 0.85;
 }
 
 .nav-link-moto:hover {
   color: #ffffff;
-  background: rgba(217, 4, 22, 0.08);
+  background: rgba(217, 4, 22, 0.07);
+  transform: translateY(-1px);
 }
 
 .nav-link-moto:hover::after {
@@ -359,6 +364,8 @@ body {
 
 .nav-link-moto.active::after {
   transform: scaleX(1);
+  background: #D90416;
+  opacity: 1;
 }
 
 /* scrollbar */

@@ -82,20 +82,65 @@ function Header() {
 
   return (
     <header className="navbar-dark sticky top-0 z-50">
+      {/* thin racing red accent line at very top */}
+      <div
+        style={{
+          height: '2px',
+          background: 'linear-gradient(90deg, transparent 0%, #D90416 30%, #ff2030 50%, #D90416 70%, transparent 100%)',
+          opacity: 0.8,
+        }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16">
           {/* ── LOGO ── */}
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            {/* R shield icon */}
-            <div className="w-8 h-8 bg-[#D90416] rounded flex items-center justify-center font-black text-white text-lg leading-none select-none">
-              R
+          <Link
+            to="/"
+            className="flex items-center gap-3 shrink-0 select-none riderex-logo"
+            style={{ transition: 'transform 300ms ease' }}
+            onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.transform = 'scale(1.03)'}
+            onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.transform = 'scale(1)'}
+          >
+            {/* Emblem */}
+            <div className="relative shrink-0">
+              {/* subtle red ambient glow behind emblem */}
+              <div
+                className="absolute inset-0 rounded-full blur-md opacity-40 pointer-events-none"
+                style={{ background: 'radial-gradient(circle, #D90416 0%, transparent 70%)', transform: 'scale(1.4)' }}
+              />
+              <img
+                src="/images/logoPng.png"
+                alt="Riderex Emblem"
+                className="relative z-10 object-contain"
+                style={{ width: '36px', height: '36px', filter: 'drop-shadow(0 0 6px rgba(217,4,22,0.55))' }}
+              />
             </div>
+
+            {/* Brand text */}
             <div className="leading-none">
-              <span className="block text-base font-black tracking-widest text-white uppercase">
-                RideRex
+              <span
+                className="block text-white uppercase"
+                style={{
+                  fontWeight: 900,
+                  fontSize: '15px',
+                  letterSpacing: '1px',
+                  textShadow: '0 0 20px rgba(217,4,22,0.3)',
+                  lineHeight: 1.1,
+                }}
+              >
+                RIDEREX
               </span>
-              <span className="block text-[9px] tracking-[0.35em] text-[#D90416] uppercase font-medium">
-                Rise Beyond Limits
+              <span
+                className="block uppercase"
+                style={{
+                  fontSize: '8.5px',
+                  letterSpacing: '0.32em',
+                  fontWeight: 500,
+                  color: '#D90416',
+                  marginTop: '3px',
+                  lineHeight: 1,
+                }}
+              >
+                RISE BEYOND LIMITS
               </span>
             </div>
           </Link>
