@@ -562,32 +562,154 @@ function HomePage3() {
       </section>
 
       {/* ══════════════════════════════════════════
-          STATISTICS BAR
+          STATISTICS — RIDEREX HUD PANEL
       ══════════════════════════════════════════ */}
-      <section id="stats-section" className="stats-bar">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-x-reverse divide-[rgba(255,255,255,0.05)]">
-            {[
-              { icon: "👥", value: "25,000+", label: "مشتری فعال" },
-              { icon: "📦", value: "1,200+", label: "محصول متنوع" },
-              { icon: "✅", value: "99٪", label: "رضایت مشتریان" },
-              { icon: "🏪", value: "200+", label: "فروشنده معتبر" },
-            ].map((stat, i) => (
-              <div key={i} className="flex items-center gap-4 px-6 py-6">
-                <span
-                  className="text-2xl shrink-0"
-                  style={{ filter: "drop-shadow(0 0 6px rgba(217,4,22,0.6))" }}
+      <section id="stats-section" className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* HUD container */}
+          <div
+            className="relative overflow-hidden rounded-2xl"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(12,12,12,0.95) 0%, rgba(18,5,5,0.95) 100%)",
+              border: "1px solid rgba(217,4,22,0.25)",
+              animation: "redPulse 4s ease-in-out infinite",
+            }}
+          >
+            {/* top shimmer line */}
+            <div
+              className="absolute top-0 left-0 right-0 h-px"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent 0%, rgba(217,4,22,0.8) 30%, #ff2336 50%, rgba(217,4,22,0.8) 70%, transparent 100%)",
+                backgroundSize: "200% auto",
+                animation: "hudShimmer 3s linear infinite",
+              }}
+            />
+            {/* bottom shimmer line */}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-px opacity-40"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, rgba(217,4,22,0.6), transparent)",
+              }}
+            />
+            {/* ambient red glow left */}
+            <div
+              className="absolute top-0 bottom-0 right-0 w-32 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse at right, rgba(217,4,22,0.08) 0%, transparent 70%)",
+              }}
+            />
+            {/* ambient red glow right */}
+            <div
+              className="absolute top-0 bottom-0 left-0 w-32 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse at left, rgba(217,4,22,0.08) 0%, transparent 70%)",
+              }}
+            />
+
+            <div className="grid grid-cols-2 md:grid-cols-4">
+              {[
+                {
+                  value: "25K+",
+                  label: "RIDERS",
+                  sublabel: "مشتری راضی",
+                  icon: "🏍",
+                },
+                {
+                  value: "1200+",
+                  label: "PARTS",
+                  sublabel: "قطعه موجود",
+                  icon: "⚙️",
+                },
+                {
+                  value: "99%",
+                  label: "TRUST",
+                  sublabel: "رضایت مشتری",
+                  icon: "🛡",
+                },
+                {
+                  value: "200+",
+                  label: "SELLERS",
+                  sublabel: "فروشنده معتبر",
+                  icon: "🏪",
+                },
+              ].map((stat, i) => (
+                <div
+                  key={i}
+                  className="group relative flex flex-col items-center justify-center py-8 px-4 cursor-default transition-all duration-300"
+                  style={{
+                    borderRight:
+                      i < 3 ? "1px solid rgba(217,4,22,0.12)" : "none",
+                    animation: `statFadeUp 0.6s ease both ${i * 0.12}s`,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.background =
+                      "rgba(217,4,22,0.05)";
+                    (e.currentTarget as HTMLDivElement).style.transform =
+                      "translateY(-4px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.background = "";
+                    (e.currentTarget as HTMLDivElement).style.transform = "";
+                  }}
                 >
-                  {stat.icon}
-                </span>
-                <div>
-                  <p className="text-xl md:text-2xl font-black text-white leading-none">
+                  {/* icon */}
+                  <span
+                    className="text-2xl mb-3 group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      filter: "drop-shadow(0 0 8px rgba(217,4,22,0.7))",
+                    }}
+                  >
+                    {stat.icon}
+                  </span>
+
+                  {/* big value */}
+                  <span
+                    className="block font-black leading-none mb-1"
+                    style={{
+                      fontSize: "clamp(28px, 4vw, 42px)",
+                      background:
+                        "linear-gradient(180deg, #ffffff 0%, #c0c0c0 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                      textShadow: "none",
+                      letterSpacing: "-0.5px",
+                    }}
+                  >
                     {stat.value}
-                  </p>
-                  <p className="text-xs text-gray-500 mt-0.5">{stat.label}</p>
+                  </span>
+
+                  {/* en label */}
+                  <span
+                    className="block font-black tracking-widest mb-1"
+                    style={{
+                      fontSize: "11px",
+                      color: "#D90416",
+                      letterSpacing: "0.25em",
+                    }}
+                  >
+                    {stat.label}
+                  </span>
+
+                  {/* fa sublabel */}
+                  <span className="text-xs text-gray-600">{stat.sublabel}</span>
+
+                  {/* hover bottom line */}
+                  <div
+                    className="absolute bottom-0 left-8 right-8 h-px transition-all duration-300 opacity-0 group-hover:opacity-100"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, transparent, #D90416, transparent)",
+                    }}
+                  />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -614,55 +736,216 @@ function HomePage3() {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-            دسته‌بندی‌های <span className="text-gradient">محصولات</span>
-          </h2>
-          <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto">
-            از بین بیش از ۱۲۰۰ قطعه و لوازم یدکی، قطعه مناسب موتورتان را پیدا
-            کنید
-          </p>
-        </div>
+      {/* ══════════════════════════════════════════
+          RIDEREX GARAGE — CATEGORY PANELS
+      ══════════════════════════════════════════ */}
+      <section className="py-20 relative overflow-hidden">
+        {/* garage ambient bg */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(217,4,22,0.04) 0%, transparent 70%)",
+          }}
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          {categories.map((category, index) => {
-            const CatIcon = category.icon;
-            return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section header */}
+          <div className="mb-12 md:mb-16">
+            <div className="flex items-center gap-3 mb-3">
               <div
-                key={index}
-                className="group relative overflow-hidden glass rounded-2xl p-4 md:p-8 card-hover"
+                className="h-px flex-1 max-w-8"
+                style={{ background: "#D90416" }}
+              />
+              <span
+                className="text-xs font-black tracking-[0.3em] uppercase"
+                style={{ color: "#D90416" }}
               >
+                RIDEREX GARAGE
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-3">
+              دسته‌بندی ها در
+              <span
+                className="mr-3"
+                style={{
+                  background: "linear-gradient(135deg, #D90416, #ff2336)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                گاراژ
+              </span>
+            </h2>
+            <p className="text-gray-500 max-w-xl">
+              بیش از ۱۲۰۰ قطعه اورجینال — انتخاب دسته‌بندی مورد نیاز خود را
+              بکنید
+            </p>
+          </div>
+
+          {/* Garage panels grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            {[
+              {
+                num: "01",
+                name: "قطعات موتوری",
+                count: 420,
+                img: "/images/motorParts.jpg",
+                desc: "موتور، سیلندر، پیستون",
+              },
+              {
+                num: "02",
+                name: "لوازم جانبی",
+                count: 230,
+                img: "/images/acessories.jpg",
+                desc: "اکسسوری و محافظ‌ها",
+              },
+              {
+                num: "03",
+                name: "روغن و روانکارها",
+                count: 120,
+                img: "/images/motorOil.jpg",
+                desc: "روغن موتور و افزودنی‌ها",
+              },
+              {
+                num: "04",
+                name: "تجهیزات سرویس",
+                count: 160,
+                img: "/images/repair.jpg",
+                desc: "ابزار و تجهیزات تعمیر",
+              },
+              {
+                num: "05",
+                name: "تجهیزات ایمنی",
+                count: 75,
+                img: "/images/helmet.jpg",
+                desc: "کلاه، دستکش، محافظ",
+              },
+              {
+                num: "06",
+                name: "قطعات الکترونیکی",
+                count: 90,
+                img: "/images/electronics.jpg",
+                desc: "سنسور، ECU، سیستم برق",
+              },
+            ].map((cat, i) => (
+              <Link
+                to="/courses"
+                key={i}
+                className="group relative overflow-hidden rounded-2xl block"
+                style={{
+                  height: "280px",
+                  background: "#0a0a0a",
+                  border: "1px solid rgba(217,4,22,0.15)",
+                  transition:
+                    "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.transform = "translateY(-10px)";
+                  el.style.boxShadow =
+                    "0 24px 60px rgba(217,4,22,0.25), 0 0 0 1px rgba(217,4,22,0.4)";
+                  el.style.borderColor = "rgba(217,4,22,0.5)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.transform = "";
+                  el.style.boxShadow = "";
+                  el.style.borderColor = "rgba(217,4,22,0.15)";
+                }}
+              >
+                {/* background image */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                ></div>
-                <div className="relative z-10">
-                  <div
-                    className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center mb-4 md:mb-6`}
-                  >
-                    <CatIcon className="h-6 w-6 md:h-8 md:w-8 text-white" />
-                  </div>
-                  <h3 className="text-lg md:text-2xl font-bold mb-2">
-                    {category.name}
-                  </h3>
-                  <p className="text-gray-400 mb-2 text-sm md:text-base">
-                    {category.description}
-                  </p>
-                  <p className="text-purple-400 font-semibold mb-3 md:mb-4 text-sm md:text-base">
-                    {category.count} محصول موجود
-                  </p>
-                  <Link
-                    to="/courses"
-                    className="inline-flex items-center space-x-2 space-x-reverse text-purple-400 hover:text-purple-300 font-medium group-hover:translate-x-2 transition-transform text-sm md:text-base"
-                  >
-                    <span>مشاهده محصولات</span>
-                    <ArrowLeft className="h-3 w-3 md:h-4 md:w-4" />
-                  </Link>
+                  className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                  style={{
+                    backgroundImage: `url(${cat.img})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+
+                {/* dark overlay */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.75) 60%, rgba(5,5,5,0.97) 100%)",
+                  }}
+                />
+
+                {/* red vignette on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at center, transparent 40%, rgba(217,4,22,0.15) 100%)",
+                  }}
+                />
+
+                {/* scan line animation */}
+                <div
+                  className="absolute left-0 right-0 h-px pointer-events-none opacity-0 group-hover:opacity-100"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(217,4,22,0.9), transparent)",
+                    animation: "garageScan 2s ease-in-out infinite",
+                    top: "0",
+                  }}
+                />
+
+                {/* category number — large semi-transparent */}
+                <div
+                  className="absolute top-4 right-4 font-black leading-none select-none pointer-events-none"
+                  style={{
+                    fontSize: "clamp(48px, 6vw, 72px)",
+                    color: "rgba(217,4,22,0.18)",
+                    letterSpacing: "-2px",
+                    lineHeight: 1,
+                    transition: "color 0.3s ease",
+                  }}
+                  data-number={cat.num}
+                >
+                  {cat.num}
                 </div>
-              </div>
-            );
-          })}
+
+                {/* content bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                  <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider">
+                    {cat.desc}
+                  </p>
+                  <h3 className="text-xl font-black text-white mb-1 group-hover:text-white transition-colors">
+                    {cat.name}
+                  </h3>
+
+                  <div className="flex items-center justify-between mt-3">
+                    <span className="text-xs text-gray-500">
+                      <span className="text-[#D90416] font-bold">
+                        {cat.count}
+                      </span>{" "}
+                      محصول موجود
+                    </span>
+                    <span
+                      className="flex items-center gap-1.5 text-xs font-bold transition-all duration-300 group-hover:gap-2.5"
+                      style={{ color: "#D90416" }}
+                    >
+                      ورود به گاراژ
+                      <ArrowLeft className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </div>
+
+                {/* left accent line */}
+                <div
+                  className="absolute top-6 bottom-6 right-0 w-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, transparent, #D90416, transparent)",
+                  }}
+                />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -972,7 +1255,7 @@ function HomePage3() {
                 </div>
                 <div className="flex items-center space-x-2 space-x-reverse">
                   <Users className="h-3 w-3 md:h-4 md:w-4" />
-                  <span>{event.attendees} شرکت‌کننده</span>
+                  <span>شرکت‌کنندگان</span>
                 </div>
               </div>
 

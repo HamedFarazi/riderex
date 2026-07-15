@@ -421,6 +421,38 @@ body {
   50%      { transform: scale(1.035); }
 }
 
+/* garage scan line */
+@keyframes garageScan {
+  0%   { top: -4px; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 0.7; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* red pulse glow */
+@keyframes redPulse {
+  0%,100% { box-shadow: 0 0 10px rgba(217,4,22,0.15); }
+  50%     { box-shadow: 0 0 28px rgba(217,4,22,0.45), 0 0 60px rgba(217,4,22,0.12); }
+}
+
+/* neon glow */
+@keyframes neonGlow {
+  0%,100% { opacity: 0.4; }
+  50%     { opacity: 0.9; }
+}
+
+/* stat counter fade-up */
+@keyframes statFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* HUD border shimmer */
+@keyframes hudShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
 /* red shimmer scan line on hero image */
 @keyframes scanline {
   0%   { top: -10%; opacity: 0; }
